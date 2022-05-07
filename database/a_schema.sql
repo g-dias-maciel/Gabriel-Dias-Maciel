@@ -1,9 +1,8 @@
 
--- create database
-CREATE DATABASE bookstore;
+
 USE bookstore;
 
-CREATE TABLE `users` (
+CREATE TABLE  if not exists `users` (
   `user_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -12,7 +11,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
-CREATE TABLE `books` (
+CREATE TABLE if not exists `books` (
   `book_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `book` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `author` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -20,10 +19,10 @@ CREATE TABLE `books` (
   PRIMARY KEY (`book_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE `sales` (
+CREATE TABLE if not exists `sales` (
   `sales_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `sale_date` datetime  NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `user_id` bigint(20) unsigned NOT NULL,,
+  `user_id` bigint(20) unsigned NOT NULL,
   `book_id` bigint(20) unsigned NOT NULL,
   `sale_status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`sales_id`)
