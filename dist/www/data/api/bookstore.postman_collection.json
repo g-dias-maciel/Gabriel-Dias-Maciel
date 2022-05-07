@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "cd916e54-c33c-4694-8733-5a9d6a218119",
+		"name": "bookstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "listUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/bookstore.php/user/list?id=15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"bookstore.php",
+						"user",
+						"list"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "15",
+							"description": "user id, if not defined get all users"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listBooks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/bookstore.php/books/list?id=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"bookstore.php",
+						"books",
+						"list"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5",
+							"description": "if defined return matching id book, else return all books\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listSales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/bookstore.php/sales/list?id=15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"bookstore.php",
+						"sales",
+						"list"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "15",
+							"description": "list specific sale if defined else list all"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addSale",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":\"15\",\r\n    \"book_id\": \"50\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/bookstore.php/sales/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"bookstore.php",
+						"sales",
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  php-env:
+    build: .
+    ports:
+      - 9000:80
+    volumes:
+      - ./dist/www:/var/www/html
+    links:
+      - mysql_db
+
+  mysql_db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - dbdata:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - 9001:80
+    environment:
+      - PMA_ARBITRARY=1
+
+  php-unit:
+    image: phpunit/phpunit
+    volumes:
+      - ./dist/www/unitest:/var/www/html
+
+volumes:
+  dbdata:
+
