@@ -17,12 +17,10 @@ services:
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bookstore
     volumes:
-      - dbdata:/var/lib/mysql
-      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
-      - ./database/schema.sql:/docker-entrypoint-initdb.d/books.sql:ro
-      - ./database/schema.sql:/docker-entrypoint-initdb.d/users.sql:ro
-
+       - ./database:/docker-entrypoint-initdb.d/
+       - ./database/data:/var/lib/mysql
   phpmyadmin:
     image: phpmyadmin:latest
     restart: always

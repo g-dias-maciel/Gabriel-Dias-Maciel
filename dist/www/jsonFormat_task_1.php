@@ -2,6 +2,7 @@
 require('app/methods/jsonController.php');
 
 
+//run "php jsonFormat_task_1.php" on php container
 __init();
 
 
