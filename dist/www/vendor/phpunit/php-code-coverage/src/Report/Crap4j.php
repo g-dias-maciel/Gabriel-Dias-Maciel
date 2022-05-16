@@ -49,7 +49,7 @@ final class Crap4j
         $root->appendChild($document->createElement('timestamp', date('Y-m-d H:i:s')));
 
         $stats       = $document->createElement('stats');
-        $methodsNode = $document->createElement('methods');
+        $methodsNode = $document->createElement('class');
 
         $report = $coverage->getReport();
         unset($coverage);
@@ -72,7 +72,7 @@ final class Crap4j
             $classes = $item->classesAndTraits();
 
             foreach ($classes as $className => $class) {
-                foreach ($class['methods'] as $methodName => $method) {
+                foreach ($class['class'] as $methodName => $method) {
                     $crapLoad = $this->crapLoad((float) $method['crap'], $method['ccn'], $method['coverage']);
 
                     $fullCrap += $method['crap'];

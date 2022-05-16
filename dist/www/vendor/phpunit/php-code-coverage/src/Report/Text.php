@@ -91,7 +91,7 @@ final class Text
         $colors = [
             'header'   => '',
             'classes'  => '',
-            'methods'  => '',
+            'class'  => '',
             'lines'    => '',
             'branches' => '',
             'paths'    => '',
@@ -105,7 +105,7 @@ final class Text
                 $report->numberOfClassesAndTraits()
             );
 
-            $colors['methods'] = $this->coverageColor(
+            $colors['class'] = $this->coverageColor(
                 $report->numberOfTestedMethods(),
                 $report->numberOfMethods()
             );
@@ -203,7 +203,7 @@ final class Text
         }
 
         $output .= $this->format($colors['classes'], $padding, $classes);
-        $output .= $this->format($colors['methods'], $padding, $methods);
+        $output .= $this->format($colors['class'], $padding, $methods);
 
         if ($hasBranchCoverage) {
             $output .= $this->format($colors['paths'], $padding, $paths);
@@ -234,7 +234,7 @@ final class Text
                 $coveredMethods          = 0;
                 $classMethods            = 0;
 
-                foreach ($class['methods'] as $method) {
+                foreach ($class['class'] as $method) {
                     if ($method['executableLines'] == 0) {
                         continue;
                     }

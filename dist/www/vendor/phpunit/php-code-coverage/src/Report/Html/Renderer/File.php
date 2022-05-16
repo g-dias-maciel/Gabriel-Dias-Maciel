@@ -233,7 +233,7 @@ final class File extends Renderer
             $numMethods       = 0;
             $numTestedMethods = 0;
 
-            foreach ($item['methods'] as $method) {
+            foreach ($item['class'] as $method) {
                 if ($method['executableLines'] > 0) {
                     $numMethods++;
 
@@ -313,7 +313,7 @@ final class File extends Renderer
                 ]
             );
 
-            foreach ($item['methods'] as $method) {
+            foreach ($item['class'] as $method) {
                 $buffer .= $this->renderFunctionOrMethodItem(
                     $methodItemTemplate,
                     $method,

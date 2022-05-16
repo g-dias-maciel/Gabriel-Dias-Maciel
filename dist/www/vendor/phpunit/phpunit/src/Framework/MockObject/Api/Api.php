@@ -42,7 +42,7 @@ trait Api
     {
         if (isset(static::$__phpunit_configurableMethods)) {
             throw new ConfigurableMethodsAlreadyInitializedException(
-                'Configurable methods is already initialized and can not be reinitialized'
+                'Configurable class is already initialized and can not be reinitialized'
             );
         }
 

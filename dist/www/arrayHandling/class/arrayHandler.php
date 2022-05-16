@@ -1,6 +1,6 @@
 <?php
 
-class arrayController
+class arrayHandler
 {
 
 
@@ -20,7 +20,7 @@ class arrayController
      * @param bool $sort
      * @return array|int[]
      */
-    static function generateIntArray($array_min_size, $array_max_size, $array_min_value, $array_max_value, $sort = true)
+    static function arrayCreate($array_min_size, $array_max_size, $array_min_value, $array_max_value, $sort = true)
     {
 
         //generate random integer array mapping the array with random numbers in specified range

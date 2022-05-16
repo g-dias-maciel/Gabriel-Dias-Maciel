@@ -82,7 +82,7 @@ class Method extends FunctionLike
         }
 
         $this->flags = BuilderHelpers::addModifier($this->flags, Stmt\Class_::MODIFIER_ABSTRACT);
-        $this->stmts = null; // abstract methods don't have statements
+        $this->stmts = null; // abstract class don't have statements
 
         return $this;
     }

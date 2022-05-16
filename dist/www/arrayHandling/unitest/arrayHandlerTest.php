@@ -1,11 +1,11 @@
 <?php
-require('vendor/autoload.php');
-require_once './app/methods/arrayController.php';
+require('./vendor/autoload.php');
+require_once './arrayHandling/class/arrayHandler.php';
 
 use PHPUnit\Framework\TestCase;
 
 
-class arrayControllerTest extends TestCase
+class arrayHandlerTest extends TestCase
 {
     /**
      * test case where we look for a value that is not in the array
@@ -17,13 +17,13 @@ class arrayControllerTest extends TestCase
 
         $search_value = -10;
 
-        $array = arrayController::generateIntArray(10e4, 10e5, 0, 10e6);
+        $array = arrayHandler::arrayCreate(10e4, 10e5, 0, 10e6);
 
         print "\r\n";
         print "Random array created\r\n";
         print "Array size: " . count($array) . "\r\n";
         print "Searching for value: " . $search_value . "\r\n";
-        $actual = arrayController::arraySearch($search_value, $array, count($array), 0);
+        $actual = arrayHandler::arraySearch($search_value, $array, count($array), 0);
 
         print "Search result (-1 if not found): \r\n";
         print_r($actual);
@@ -42,13 +42,13 @@ class arrayControllerTest extends TestCase
 
         $search_value = 1337;
 
-        $array = arrayController::generateIntArray(10e4, 10e5, 0, 10e4);
+        $array = arrayHandler::arrayCreate(10e4, 10e5, 0, 10e4);
 
         print "\r\n";
         print "Random array created\r\n";
         print "Array size: " . count($array) . "\r\n";
         print "Searching for value: " . $search_value . "\r\n";
-        $actual = arrayController::arraySearch($search_value, $array, count($array), 0);
+        $actual = arrayHandler::arraySearch($search_value, $array, count($array), 0);
 
         print "Search result (-1 if not found) else item index: \r\n";
         print_r($actual);
@@ -73,13 +73,13 @@ class arrayControllerTest extends TestCase
 
         $search_value = 233700;
 
-        $array = arrayController::generateIntArray(10e4, 10e5, 0, 10e5);
+        $array = arrayHandler::arrayCreate(10e4, 10e5, 0, 10e5);
 
         print "\r\n";
         print "Random array created\r\n";
         print "Array size: " . count($array) . "\r\n";
         print "Searching for value: " . $search_value . "\r\n";
-        $actual = arrayController::arraySearch($search_value, $array, count($array), 0);
+        $actual = arrayHandler::arraySearch($search_value, $array, count($array), 0);
 
         print "Search result (-1 if not found) else item index: \r\n";
         print_r($actual);

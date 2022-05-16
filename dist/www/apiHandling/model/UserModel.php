@@ -1,5 +1,5 @@
 <?php
-require_once PROJECT_ROOT_PATH . "/model/Database.php";
+require_once "Database.php";
 
 class UserModel extends Database
 {

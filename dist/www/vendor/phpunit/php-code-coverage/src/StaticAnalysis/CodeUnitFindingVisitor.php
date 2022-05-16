@@ -35,12 +35,12 @@ use SebastianBergmann\Complexity\CyclomaticComplexityCalculatingVisitor;
 final class CodeUnitFindingVisitor extends NodeVisitorAbstract
 {
     /**
-     * @psalm-var array<string,array{name: string, namespacedName: string, namespace: string, startLine: int, endLine: int, methods: array<string,array{methodName: string, signature: string, visibility: string, startLine: int, endLine: int, ccn: int}>}>
+     * @psalm-var array<string,array{name: string, namespacedName: string, namespace: string, startLine: int, endLine: int, class: array<string,array{methodName: string, signature: string, visibility: string, startLine: int, endLine: int, ccn: int}>}>
      */
     private $classes = [];
 
     /**
-     * @psalm-var array<string,array{name: string, namespacedName: string, namespace: string, startLine: int, endLine: int, methods: array<string,array{methodName: string, signature: string, visibility: string, startLine: int, endLine: int, ccn: int}>}>
+     * @psalm-var array<string,array{name: string, namespacedName: string, namespace: string, startLine: int, endLine: int, class: array<string,array{methodName: string, signature: string, visibility: string, startLine: int, endLine: int, ccn: int}>}>
      */
     private $traits = [];
 
@@ -83,7 +83,7 @@ final class CodeUnitFindingVisitor extends NodeVisitorAbstract
     }
 
     /**
-     * @psalm-return array<string,array{name: string, namespacedName: string, namespace: string, startLine: int, endLine: int, methods: array<string,array{methodName: string, signature: string, visibility: string, startLine: int, endLine: int, ccn: int}>}>
+     * @psalm-return array<string,array{name: string, namespacedName: string, namespace: string, startLine: int, endLine: int, class: array<string,array{methodName: string, signature: string, visibility: string, startLine: int, endLine: int, ccn: int}>}>
      */
     public function classes(): array
     {
@@ -91,7 +91,7 @@ final class CodeUnitFindingVisitor extends NodeVisitorAbstract
     }
 
     /**
-     * @psalm-return array<string,array{name: string, namespacedName: string, namespace: string, startLine: int, endLine: int, methods: array<string,array{methodName: string, signature: string, visibility: string, startLine: int, endLine: int, ccn: int}>}>
+     * @psalm-return array<string,array{name: string, namespacedName: string, namespace: string, startLine: int, endLine: int, class: array<string,array{methodName: string, signature: string, visibility: string, startLine: int, endLine: int, ccn: int}>}>
      */
     public function traits(): array
     {
@@ -210,7 +210,7 @@ final class CodeUnitFindingVisitor extends NodeVisitorAbstract
             'namespace'      => $this->namespace($namespacedName, $name),
             'startLine'      => $node->getStartLine(),
             'endLine'        => $node->getEndLine(),
-            'methods'        => [],
+            'class'        => [],
         ];
     }
 
@@ -225,7 +225,7 @@ final class CodeUnitFindingVisitor extends NodeVisitorAbstract
             'namespace'      => $this->namespace($namespacedName, $name),
             'startLine'      => $node->getStartLine(),
             'endLine'        => $node->getEndLine(),
-            'methods'        => [],
+            'class'        => [],
         ];
     }
 
@@ -258,11 +258,11 @@ final class CodeUnitFindingVisitor extends NodeVisitorAbstract
                 'namespace'      => $this->namespace($parentNamespacedName, $parentName),
                 'startLine'      => $parentNode->getStartLine(),
                 'endLine'        => $parentNode->getEndLine(),
-                'methods'        => [],
+                'class'        => [],
             ];
         }
 
-        $storage[$parentNamespacedName]['methods'][$node->name->toString()] = [
+        $storage[$parentNamespacedName]['class'][$node->name->toString()] = [
             'methodName' => $node->name->toString(),
             'signature'  => $this->signature($node),
             'visibility' => $this->visibility($node),

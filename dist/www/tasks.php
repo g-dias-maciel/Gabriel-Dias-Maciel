@@ -1,6 +1,6 @@
 <?php
 
-echo '<h1 style="text-align: center">Thinksurance // Coding Task<h1/>
+echo '<h1 style="text-align: center">Coding Tasks<h1/>
         <h2 style="text-align: center">JSON parsing basic skills:<h2/>
         <h4>There is a folder with multiple JSON files that are in the same JSON format. 
         Each file contains the following information: first name, last name, birthday, address, and phone number. 

@@ -33,7 +33,7 @@ class KeywordPatch implements ClassPatchInterface
     }
 
     /**
-     * Remove methods that clash with php keywords
+     * Remove class that clash with php keywords
      *
      * @param ClassNode $node
      */

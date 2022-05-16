@@ -401,7 +401,7 @@ class TestSuite implements IteratorAggregate, Reorderable, SelfDescribing, Test
         $filename   = FileLoader::checkAndLoad($filename);
         $newClasses = array_slice(get_declared_classes(), $this->declaredClassesPointer);
 
-        // The diff is empty in case a parent class (with test methods) is added
+        // The diff is empty in case a parent class (with test class) is added
         // AFTER a child class that inherited from it. To account for that case,
         // accumulate all discovered classes, so the parent class may be found in
         // a later invocation.

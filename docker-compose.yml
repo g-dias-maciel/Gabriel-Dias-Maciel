@@ -32,7 +32,7 @@ services:
   php-unit:
     image: phpunit/phpunit
     volumes:
-      - ./dist/www/unitest:/var/www/html
+      - ./dist/www:/var/www/html
 
 volumes:
   dbdata:

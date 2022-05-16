@@ -14,7 +14,7 @@ namespace Prophecy\Doubler\ClassPatch;
 use Prophecy\Doubler\Generator\Node\ClassNode;
 
 /**
- * Exception patch for HHVM to remove the stubs from special methods
+ * Exception patch for HHVM to remove the stubs from special class
  *
  * @author Christophe Coevoet <stof@notk.org>
  */
@@ -37,7 +37,7 @@ class HhvmExceptionPatch implements ClassPatchInterface
     }
 
     /**
-     * Removes special exception static methods from the doubled methods.
+     * Removes special exception static class from the doubled class.
      *
      * @param ClassNode $node
      *

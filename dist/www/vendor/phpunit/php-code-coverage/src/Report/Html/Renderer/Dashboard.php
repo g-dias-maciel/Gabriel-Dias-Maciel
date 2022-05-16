@@ -78,7 +78,7 @@ final class Dashboard extends Renderer
         $result = ['class' => [], 'method' => []];
 
         foreach ($classes as $className => $class) {
-            foreach ($class['methods'] as $methodName => $method) {
+            foreach ($class['class'] as $methodName => $method) {
                 if ($className !== '*') {
                     $methodName = $className . '::' . $methodName;
                 }
@@ -148,7 +148,7 @@ final class Dashboard extends Renderer
         ];
 
         foreach ($classes as $class) {
-            foreach ($class['methods'] as $methodName => $method) {
+            foreach ($class['class'] as $methodName => $method) {
                 if ($method['coverage'] === 0) {
                     $result['method']['0%']++;
                 } elseif ($method['coverage'] === 100) {
@@ -178,7 +178,7 @@ final class Dashboard extends Renderer
     }
 
     /**
-     * Returns the classes / methods with insufficient coverage.
+     * Returns the classes / class with insufficient coverage.
      */
     private function insufficientCoverage(array $classes, string $baseLink): array
     {
@@ -187,7 +187,7 @@ final class Dashboard extends Renderer
         $result             = ['class' => '', 'method' => ''];
 
         foreach ($classes as $className => $class) {
-            foreach ($class['methods'] as $methodName => $method) {
+            foreach ($class['class'] as $methodName => $method) {
                 if ($method['coverage'] < $this->highLowerBound) {
                     $key = $methodName;
 
@@ -221,7 +221,7 @@ final class Dashboard extends Renderer
 
             $result['method'] .= sprintf(
                 '       <tr><td><a href="%s"><abbr title="%s">%s</abbr></a></td><td class="text-right">%d%%</td></tr>' . "\n",
-                str_replace($baseLink, '', $classes[$class]['methods'][$method]['link']),
+                str_replace($baseLink, '', $classes[$class]['class'][$method]['link']),
                 $methodName,
                 $method,
                 $coverage
@@ -241,7 +241,7 @@ final class Dashboard extends Renderer
         $result      = ['class' => '', 'method' => ''];
 
         foreach ($classes as $className => $class) {
-            foreach ($class['methods'] as $methodName => $method) {
+            foreach ($class['class'] as $methodName => $method) {
                 if ($method['coverage'] < $this->highLowerBound && $method['ccn'] > 1) {
                     $key = $methodName;
 
@@ -254,7 +254,7 @@ final class Dashboard extends Renderer
             }
 
             if ($class['coverage'] < $this->highLowerBound &&
-                $class['ccn'] > count($class['methods'])) {
+                $class['ccn'] > count($class['class'])) {
                 $classRisks[$className] = $class['crap'];
             }
         }
@@ -276,7 +276,7 @@ final class Dashboard extends Renderer
 
             $result['method'] .= sprintf(
                 '       <tr><td><a href="%s"><abbr title="%s">%s</abbr></a></td><td class="text-right">%d</td></tr>' . "\n",
-                str_replace($baseLink, '', $classes[$class]['methods'][$method]['link']),
+                str_replace($baseLink, '', $classes[$class]['class'][$method]['link']),
                 $methodName,
                 $method,
                 $crap

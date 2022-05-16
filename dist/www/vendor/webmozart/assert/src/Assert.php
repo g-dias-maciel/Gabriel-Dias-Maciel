@@ -24,7 +24,7 @@ use Throwable;
 use Traversable;
 
 /**
- * Efficient assertions to validate the input/output of your methods.
+ * Efficient assertions to validate the input/output of your class.
  *
  * @since  1.0
  *

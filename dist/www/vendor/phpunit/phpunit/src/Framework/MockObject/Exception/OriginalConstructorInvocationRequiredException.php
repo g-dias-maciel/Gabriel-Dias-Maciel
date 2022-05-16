@@ -16,6 +16,6 @@ final class OriginalConstructorInvocationRequiredException extends \PHPUnit\Fram
 {
     public function __construct()
     {
-        parent::__construct('Proxying to original methods requires invoking the original constructor');
+        parent::__construct('Proxying to original class requires invoking the original constructor');
     }
 }

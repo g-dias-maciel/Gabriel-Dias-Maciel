@@ -428,7 +428,7 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
 
             if (isset($frame['object']) && $frame['object'] instanceof self) {
                 $frame['object']->addWarning(
-                    'The at() matcher has been deprecated. It will be removed in PHPUnit 10. Please refactor your test to not rely on the order in which methods are invoked.'
+                    'The at() matcher has been deprecated. It will be removed in PHPUnit 10. Please refactor your test to not rely on the order in which class are invoked.'
                 );
 
                 break;
@@ -1805,7 +1805,7 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
     /**
      * Mocks the specified class and returns the name of the mocked class.
      *
-     * @param null|array $methods $methods
+     * @param null|array $methods $class
      *
      * @psalm-template RealInstanceType of object
      * @psalm-param class-string<RealInstanceType>|string $originalClassName
@@ -1831,8 +1831,8 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
 
     /**
      * Returns a mock object for the specified abstract class with all abstract
-     * methods of the class mocked. Concrete methods are not mocked by default.
-     * To mock concrete methods, use the 7th parameter ($mockedMethods).
+     * class of the class mocked. Concrete class are not mocked by default.
+     * To mock concrete class, use the 7th parameter ($mockedMethods).
      *
      * @psalm-template RealInstanceType of object
      * @psalm-param class-string<RealInstanceType> $originalClassName
@@ -1901,8 +1901,8 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
     }
 
     /**
-     * Returns a mock object for the specified trait with all abstract methods
-     * of the trait mocked. Concrete methods to mock can be specified with the
+     * Returns a mock object for the specified trait with all abstract class
+     * of the trait mocked. Concrete class to mock can be specified with the
      * `$mockedMethods` parameter.
      *
      * @psalm-param trait-string $traitName

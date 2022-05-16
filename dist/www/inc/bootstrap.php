@@ -5,10 +5,10 @@ define("PROJECT_ROOT_PATH", __DIR__ . "/../");
 require_once PROJECT_ROOT_PATH . "/inc/config.php";
 
 // include the base controller file
-require_once PROJECT_ROOT_PATH . "/controller/Api/BaseController.php";
+require_once PROJECT_ROOT_PATH . "apiHandling/controller/api/BaseController.php";
 
 // include the user/books model file
-require_once PROJECT_ROOT_PATH . "/model/UserModel.php";
-require_once PROJECT_ROOT_PATH . "/model/BooksModel.php";
-require_once PROJECT_ROOT_PATH . "/model/SalesModel.php";
+require_once PROJECT_ROOT_PATH . "/apiHandling/model/UserModel.php";
+require_once PROJECT_ROOT_PATH . "/apiHandling/model/BooksModel.php";
+require_once PROJECT_ROOT_PATH . "/apiHandling/model/SalesModel.php";
 ?>

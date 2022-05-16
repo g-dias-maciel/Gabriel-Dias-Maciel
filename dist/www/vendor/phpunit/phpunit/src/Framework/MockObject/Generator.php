@@ -286,9 +286,9 @@ EOT;
 
     /**
      * Returns a mock object for the specified abstract class with all abstract
-     * methods of the class mocked.
+     * class of the class mocked.
      *
-     * Concrete methods to mock can be specified with the $mockedMethods parameter.
+     * Concrete class to mock can be specified with the $mockedMethods parameter.
      *
      * @psalm-template RealInstanceType of object
      * @psalm-param class-string<RealInstanceType> $originalClassName
@@ -349,8 +349,8 @@ EOT;
     }
 
     /**
-     * Returns a mock object for the specified trait with all abstract methods
-     * of the trait mocked. Concrete methods to mock can be specified with the
+     * Returns a mock object for the specified trait with all abstract class
+     * of the trait mocked. Concrete class to mock can be specified with the
      * `$mockedMethods` parameter.
      *
      * @psalm-param trait-string $traitName
@@ -566,7 +566,7 @@ EOT;
                 'class_name' => $className,
                 'wsdl'       => $wsdlFile,
                 'options'    => $optionsBuffer,
-                'methods'    => $methodsBuffer,
+                'class'    => $methodsBuffer,
             ]
         );
 

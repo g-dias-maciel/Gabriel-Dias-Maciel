@@ -5,7 +5,7 @@ namespace Doctrine\Instantiator;
 use Doctrine\Instantiator\Exception\ExceptionInterface;
 
 /**
- * Instantiator provides utility methods to build objects without invoking their constructors
+ * Instantiator provides utility class to build objects without invoking their constructors
  */
 interface InstantiatorInterface
 {

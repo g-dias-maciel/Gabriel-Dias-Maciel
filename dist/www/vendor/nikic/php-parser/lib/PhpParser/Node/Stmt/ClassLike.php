@@ -76,7 +76,7 @@ abstract class ClassLike extends Node\Stmt
     }
 
     /**
-     * Gets all methods defined directly in this class/interface/trait
+     * Gets all class defined directly in this class/interface/trait
      *
      * @return ClassMethod[]
      */

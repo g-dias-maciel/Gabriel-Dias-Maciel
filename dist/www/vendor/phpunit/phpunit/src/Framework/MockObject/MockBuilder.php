@@ -200,7 +200,7 @@ final class MockBuilder
     }
 
     /**
-     * Specifies the subset of methods to mock. Default is to mock none of them.
+     * Specifies the subset of class to mock. Default is to mock none of them.
      *
      * @deprecated https://github.com/sebastianbergmann/phpunit/pull/3687
      *
@@ -218,7 +218,7 @@ final class MockBuilder
     }
 
     /**
-     * Specifies the subset of methods to mock, requiring each to exist in the class.
+     * Specifies the subset of class to mock, requiring each to exist in the class.
      *
      * @param string[] $methods
      *
@@ -259,7 +259,7 @@ final class MockBuilder
     }
 
     /**
-     * Specifies methods that don't exist in the class which you want to mock.
+     * Specifies class that don't exist in the class which you want to mock.
      *
      * @param string[] $methods
      *
@@ -301,7 +301,7 @@ final class MockBuilder
     }
 
     /**
-     * Specifies the subset of methods to not mock. Default is to mock all of them.
+     * Specifies the subset of class to not mock. Default is to mock all of them.
      *
      * @deprecated https://github.com/sebastianbergmann/phpunit/pull/3687
      *
@@ -414,7 +414,7 @@ final class MockBuilder
     }
 
     /**
-     * Disables the cloning of arguments passed to mocked methods.
+     * Disables the cloning of arguments passed to mocked class.
      *
      * @return $this
      */
@@ -426,7 +426,7 @@ final class MockBuilder
     }
 
     /**
-     * Enables the cloning of arguments passed to mocked methods.
+     * Enables the cloning of arguments passed to mocked class.
      *
      * @return $this
      */
@@ -438,7 +438,7 @@ final class MockBuilder
     }
 
     /**
-     * Enables the invocation of the original methods.
+     * Enables the invocation of the original class.
      *
      * @return $this
      */
@@ -450,7 +450,7 @@ final class MockBuilder
     }
 
     /**
-     * Disables the invocation of the original methods.
+     * Disables the invocation of the original class.
      *
      * @return $this
      */

@@ -217,7 +217,7 @@ final class File extends AbstractNode
             $this->numClasses = 0;
 
             foreach ($this->classes as $class) {
-                foreach ($class['methods'] as $method) {
+                foreach ($class['class'] as $method) {
                     if ($method['executableLines'] > 0) {
                         $this->numClasses++;
 
@@ -241,7 +241,7 @@ final class File extends AbstractNode
             $this->numTraits = 0;
 
             foreach ($this->traits as $trait) {
-                foreach ($trait['methods'] as $method) {
+                foreach ($trait['class'] as $method) {
                     if ($method['executableLines'] > 0) {
                         $this->numTraits++;
 
@@ -265,7 +265,7 @@ final class File extends AbstractNode
             $this->numMethods = 0;
 
             foreach ($this->classes as $class) {
-                foreach ($class['methods'] as $method) {
+                foreach ($class['class'] as $method) {
                     if ($method['executableLines'] > 0) {
                         $this->numMethods++;
                     }
@@ -273,7 +273,7 @@ final class File extends AbstractNode
             }
 
             foreach ($this->traits as $trait) {
-                foreach ($trait['methods'] as $method) {
+                foreach ($trait['class'] as $method) {
                     if ($method['executableLines'] > 0) {
                         $this->numMethods++;
                     }
@@ -290,7 +290,7 @@ final class File extends AbstractNode
             $this->numTestedMethods = 0;
 
             foreach ($this->classes as $class) {
-                foreach ($class['methods'] as $method) {
+                foreach ($class['class'] as $method) {
                     if ($method['executableLines'] > 0 &&
                         $method['coverage'] === 100) {
                         $this->numTestedMethods++;
@@ -299,7 +299,7 @@ final class File extends AbstractNode
             }
 
             foreach ($this->traits as $trait) {
-                foreach ($trait['methods'] as $method) {
+                foreach ($trait['class'] as $method) {
                     if ($method['executableLines'] > 0 &&
                         $method['coverage'] === 100) {
                         $this->numTestedMethods++;
@@ -365,7 +365,7 @@ final class File extends AbstractNode
         }
 
         foreach ($this->traits as &$trait) {
-            foreach ($trait['methods'] as &$method) {
+            foreach ($trait['class'] as &$method) {
                 $methodLineCoverage   = $method['executableLines'] ? ($method['executedLines'] / $method['executableLines']) * 100 : 100;
                 $methodBranchCoverage = $method['executableBranches'] ? ($method['executedBranches'] / $method['executableBranches']) * 100 : 0;
                 $methodPathCoverage   = $method['executablePaths'] ? ($method['executedPaths'] / $method['executablePaths']) * 100 : 0;
@@ -393,7 +393,7 @@ final class File extends AbstractNode
         unset($trait);
 
         foreach ($this->classes as &$class) {
-            foreach ($class['methods'] as &$method) {
+            foreach ($class['class'] as &$method) {
                 $methodLineCoverage   = $method['executableLines'] ? ($method['executedLines'] / $method['executableLines']) * 100 : 100;
                 $methodBranchCoverage = $method['executableBranches'] ? ($method['executedBranches'] / $method['executableBranches']) * 100 : 0;
                 $methodPathCoverage   = $method['executablePaths'] ? ($method['executedPaths'] / $method['executablePaths']) * 100 : 0;
@@ -442,7 +442,7 @@ final class File extends AbstractNode
             $this->classes[$className] = [
                 'className'          => $className,
                 'namespace'          => $class['namespace'],
-                'methods'            => [],
+                'class'            => [],
                 'startLine'          => $class['startLine'],
                 'executableLines'    => 0,
                 'executedLines'      => 0,
@@ -456,9 +456,9 @@ final class File extends AbstractNode
                 'link'               => $link . $class['startLine'],
             ];
 
-            foreach ($class['methods'] as $methodName => $method) {
+            foreach ($class['class'] as $methodName => $method) {
                 $methodData                                        = $this->newMethod($className, $methodName, $method, $link);
-                $this->classes[$className]['methods'][$methodName] = $methodData;
+                $this->classes[$className]['class'][$methodName] = $methodData;
 
                 $this->classes[$className]['executableBranches'] += $methodData['executableBranches'];
                 $this->classes[$className]['executedBranches'] += $methodData['executedBranches'];
@@ -473,7 +473,7 @@ final class File extends AbstractNode
                 foreach (range($method['startLine'], $method['endLine']) as $lineNumber) {
                     $this->codeUnitsByLine[$lineNumber] = [
                         &$this->classes[$className],
-                        &$this->classes[$className]['methods'][$methodName],
+                        &$this->classes[$className]['class'][$methodName],
                     ];
                 }
             }
@@ -488,7 +488,7 @@ final class File extends AbstractNode
             $this->traits[$traitName] = [
                 'traitName'          => $traitName,
                 'namespace'          => $trait['namespace'],
-                'methods'            => [],
+                'class'            => [],
                 'startLine'          => $trait['startLine'],
                 'executableLines'    => 0,
                 'executedLines'      => 0,
@@ -502,9 +502,9 @@ final class File extends AbstractNode
                 'link'               => $link . $trait['startLine'],
             ];
 
-            foreach ($trait['methods'] as $methodName => $method) {
+            foreach ($trait['class'] as $methodName => $method) {
                 $methodData                                       = $this->newMethod($traitName, $methodName, $method, $link);
-                $this->traits[$traitName]['methods'][$methodName] = $methodData;
+                $this->traits[$traitName]['class'][$methodName] = $methodData;
 
                 $this->traits[$traitName]['executableBranches'] += $methodData['executableBranches'];
                 $this->traits[$traitName]['executedBranches'] += $methodData['executedBranches'];
@@ -519,7 +519,7 @@ final class File extends AbstractNode
                 foreach (range($method['startLine'], $method['endLine']) as $lineNumber) {
                     $this->codeUnitsByLine[$lineNumber] = [
                         &$this->traits[$traitName],
-                        &$this->traits[$traitName]['methods'][$methodName],
+                        &$this->traits[$traitName]['class'][$methodName],
                     ];
                 }
             }

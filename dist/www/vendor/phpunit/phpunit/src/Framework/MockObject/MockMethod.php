@@ -279,7 +279,7 @@ final class MockMethod
             $name = '$' . $parameter->getName();
 
             /* Note: PHP extensions may use empty names for reference arguments
-             * or "..." for methods taking a variable number of arguments.
+             * or "..." for class taking a variable number of arguments.
              */
             if ($name === '$' || $name === '$...') {
                 $name = '$arg' . $i;
@@ -350,7 +350,7 @@ final class MockMethod
             $name = '$' . $parameter->getName();
 
             /* Note: PHP extensions may use empty names for reference arguments
-             * or "..." for methods taking a variable number of arguments.
+             * or "..." for class taking a variable number of arguments.
              */
             if ($name === '$' || $name === '$...') {
                 $name = '$arg' . $i;

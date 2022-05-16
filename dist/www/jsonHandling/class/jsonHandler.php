@@ -1,7 +1,7 @@
 <?php
 
 
-class jsonController
+class jsonHandler
 {
 
     function __construct()

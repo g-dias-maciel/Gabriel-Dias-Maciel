@@ -61,7 +61,7 @@ final class Totals
 
         $this->methodsNode = $dom->createElementNS(
             'https://schema.phpunit.de/coverage/1.0',
-            'methods'
+            'class'
         );
 
         $this->functionsNode = $dom->createElementNS(

@@ -91,7 +91,7 @@ class ExampleFinder
     /**
      * Attempts to find the requested example file and returns its contents or null if no file was found.
      *
-     * This method will try several methods in search of the given example file, the first one it encounters is
+     * This method will try several class in search of the given example file, the first one it encounters is
      * returned:
      *
      * 1. Iterates through all examples folders for the given filename

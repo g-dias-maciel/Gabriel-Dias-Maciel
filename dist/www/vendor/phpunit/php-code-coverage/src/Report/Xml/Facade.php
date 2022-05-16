@@ -203,7 +203,7 @@ final class Facade
         $unitObject->setCrap((float) $unit['crap']);
         $unitObject->setNamespace($unit['namespace']);
 
-        foreach ($unit['methods'] as $method) {
+        foreach ($unit['class'] as $method) {
             $methodObject = $unitObject->addMethod($method['methodName']);
             $methodObject->setSignature($method['signature']);
             $methodObject->setLines((string) $method['startLine'], (string) $method['endLine']);

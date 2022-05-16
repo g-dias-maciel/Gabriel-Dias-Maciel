@@ -1,7 +1,7 @@
 <?php
 
 /**
- * provides type inference and auto-completion for magic static methods of Assert.
+ * provides type inference and auto-completion for magic static class of Assert.
  */
 
 namespace Webmozart\Assert;
@@ -12,7 +12,7 @@ use Countable;
 use Throwable;
 
 /**
- * This trait aids static analysis tooling in introspecting assertion magic methods.
+ * This trait aids static analysis tooling in introspecting assertion magic class.
  * Do not use this trait directly: it will change, and is not designed for reuse.
  */
 trait Mixin

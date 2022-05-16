@@ -207,7 +207,7 @@ class Name extends NodeAbstract
     }
 
     /**
-     * Prepares a (string, array or Name node) name for use in name changing methods by converting
+     * Prepares a (string, array or Name node) name for use in name changing class by converting
      * it to an array.
      *
      * @param string|string[]|self $name Name to prepare

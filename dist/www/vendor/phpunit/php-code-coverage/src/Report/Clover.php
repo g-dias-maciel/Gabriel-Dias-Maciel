@@ -72,7 +72,7 @@ final class Clover
                 $coveredMethods         = 0;
                 $classMethods           = 0;
 
-                foreach ($class['methods'] as $methodName => $method) {
+                foreach ($class['class'] as $methodName => $method) {
                     if ($method['executableLines'] == 0) {
                         continue;
                     }
@@ -143,7 +143,7 @@ final class Clover
 
                 $xmlMetrics = $xmlDocument->createElement('metrics');
                 $xmlMetrics->setAttribute('complexity', (string) $class['ccn']);
-                $xmlMetrics->setAttribute('methods', (string) $classMethods);
+                $xmlMetrics->setAttribute('class', (string) $classMethods);
                 $xmlMetrics->setAttribute('coveredmethods', (string) $coveredMethods);
                 $xmlMetrics->setAttribute('conditionals', (string) $class['executableBranches']);
                 $xmlMetrics->setAttribute('coveredconditionals', (string) $class['executedBranches']);
@@ -197,7 +197,7 @@ final class Clover
             $xmlMetrics->setAttribute('loc', (string) $linesOfCode['linesOfCode']);
             $xmlMetrics->setAttribute('ncloc', (string) $linesOfCode['nonCommentLinesOfCode']);
             $xmlMetrics->setAttribute('classes', (string) $item->numberOfClassesAndTraits());
-            $xmlMetrics->setAttribute('methods', (string) $item->numberOfMethods());
+            $xmlMetrics->setAttribute('class', (string) $item->numberOfMethods());
             $xmlMetrics->setAttribute('coveredmethods', (string) $item->numberOfTestedMethods());
             $xmlMetrics->setAttribute('conditionals', (string) $item->numberOfExecutableBranches());
             $xmlMetrics->setAttribute('coveredconditionals', (string) $item->numberOfExecutedBranches());
@@ -230,7 +230,7 @@ final class Clover
         $xmlMetrics->setAttribute('loc', (string) $linesOfCode['linesOfCode']);
         $xmlMetrics->setAttribute('ncloc', (string) $linesOfCode['nonCommentLinesOfCode']);
         $xmlMetrics->setAttribute('classes', (string) $report->numberOfClassesAndTraits());
-        $xmlMetrics->setAttribute('methods', (string) $report->numberOfMethods());
+        $xmlMetrics->setAttribute('class', (string) $report->numberOfMethods());
         $xmlMetrics->setAttribute('coveredmethods', (string) $report->numberOfTestedMethods());
         $xmlMetrics->setAttribute('conditionals', (string) $report->numberOfExecutableBranches());
         $xmlMetrics->setAttribute('coveredconditionals', (string) $report->numberOfExecutedBranches());

@@ -136,7 +136,7 @@ final class Cobertura
 
                 $classesElement->appendChild($classElement);
 
-                $methodsElement = $document->createElement('methods');
+                $methodsElement = $document->createElement('class');
 
                 $classElement->appendChild($methodsElement);
 
@@ -144,7 +144,7 @@ final class Cobertura
 
                 $classElement->appendChild($classLinesElement);
 
-                foreach ($class['methods'] as $methodName => $method) {
+                foreach ($class['class'] as $methodName => $method) {
                     if ($method['executableLines'] === 0) {
                         continue;
                     }
@@ -207,7 +207,7 @@ final class Cobertura
             $classElement->setAttribute('name', basename($item->pathAsString()));
             $classElement->setAttribute('filename', str_replace($report->pathAsString() . DIRECTORY_SEPARATOR, '', $item->pathAsString()));
 
-            $methodsElement = $document->createElement('methods');
+            $methodsElement = $document->createElement('class');
 
             $classElement->appendChild($methodsElement);
 
